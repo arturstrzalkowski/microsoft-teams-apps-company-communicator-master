@@ -465,63 +465,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                                 />
                                                             </Flex>
                                                         )
-                                                    },
-                                                },
-                                                {
-                                                    name: "allUsers",
-                                                    key: "allUsers",
-                                                    value: "allUsers",
-                                                    label: this.localize("SendToAllUsers"),
-                                                    children: (Component, { name, ...props }) => {
-                                                        return (
-                                                            <Flex key={name} column>
-                                                                <Component {...props} />
-                                                                <div className={this.state.selectedRadioBtn === "allUsers" ? "" : "hide"}>
-                                                                    <div className="noteText">
-                                                                        <Text error content={this.localize("SendToAllUsersNote")} />
-                                                                    </div>
-                                                                </div>
-                                                            </Flex>
-                                                        )
-                                                    },
-                                                },
-                                                {
-                                                    name: "groups",
-                                                    key: "groups",
-                                                    value: "groups",
-                                                    label: this.localize("SendToGroups"),
-                                                    children: (Component, { name, ...props }) => {
-                                                        return (
-                                                            <Flex key={name} column>
-                                                                <Component {...props} />
-                                                                <div className={this.state.groupsOptionSelected && !this.state.groupAccess ? "" : "hide"}>
-                                                                    <div className="noteText">
-                                                                        <Text error content={this.localize("SendToGroupsPermissionNote")} />
-                                                                    </div>
-                                                                </div>
-                                                                <Dropdown
-                                                                    className="hideToggle"
-                                                                    hidden={!this.state.groupsOptionSelected || !this.state.groupAccess}
-                                                                    placeholder={this.localize("SendToGroupsPlaceHolder")}
-                                                                    search={this.onGroupSearch}
-                                                                    multiple
-                                                                    loading={this.state.loading}
-                                                                    loadingMessage={this.localize("LoadingText")}
-                                                                    items={this.getGroupItems()}
-                                                                    value={this.state.selectedGroups}
-                                                                    onSearchQueryChange={this.onGroupSearchQueryChange}
-                                                                    onChange={this.onGroupsChange}
-                                                                    noResultsMessage={this.state.noResultMessage}
-                                                                    unstable_pinned={this.state.unstablePinned}
-                                                                />
-                                                                <div className={this.state.groupsOptionSelected && this.state.groupAccess ? "" : "hide"}>
-                                                                    <div className="noteText">
-                                                                        <Text error content={this.localize("SendToGroupsNote")} />
-                                                                    </div>
-                                                                </div>
-                                                            </Flex>
-                                                        )
-                                                    },
+                                                    }
                                                 }
                                             ]}
                                         >
